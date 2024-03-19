@@ -13,7 +13,7 @@ class Deleting
         }
 
         if (is_null($model->{$model->getDeletedByColumn()})) {
-            $model->{$model->getDeletedByColumn()} = Auth::id();
+            $model->{$model->getDeletedByColumn()} = Auth::id() ?? ($model->hasDefaultUser() ? $model->getDefaultUserId() : null);
         }
 
         $dispatcher = $model->getEventDispatcher();
@@ -26,7 +26,7 @@ class Deleting
 
         if ($model->isTouchingRelations()) {
             foreach ($model->getTouchedRelations() as $relation) {
-                $model->$relation->{$model->getUpdatedByColumn()} = Auth::id();
+                $model->$relation->{$model->getUpdatedByColumn()} = Auth::id() ?? ($model->hasDefaultUser() ? $model->getDefaultUserId() : null);
                 $model->$relation->save();
             }
         }

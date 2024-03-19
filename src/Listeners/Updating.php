@@ -12,11 +12,11 @@ class Updating
             return;
         }
 
-        $model->{$model->getUpdatedByColumn()} = Auth::id();
+        $model->{$model->getUpdatedByColumn()} = Auth::id() ?? ($model->hasDefaultUser() ? $model->getDefaultUserId() : null);
 
         if ($model->isTouchingRelations()) {
             foreach ($model->getTouchedRelations() as $relation) {
-                $model->$relation->{$model->getUpdatedByColumn()} = Auth::id();
+                $model->$relation->{$model->getUpdatedByColumn()} = Auth::id() ?? ($model->hasDefaultUser() ? $model->getDefaultUserId() : null);
                 $model->$relation->save();
             }
         }

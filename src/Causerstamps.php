@@ -5,8 +5,10 @@ trait Causerstamps
 {
     protected $causerstamping = true;
     protected $touchRelations = true;
+    protected $hasDefaultUser = true;
+    protected $defaultUserId = 1;
 
-    public static function boot()
+    public static function bootCauserstamps()
     {
         static::addGlobalScope(new CauserstampsScope);
         static::registerListeners();
@@ -92,6 +94,31 @@ trait Causerstamps
     public function disableTouchingRelations()
     {
         $this->touchRelations = false;
+    }
+
+    public function hasDefaultUser()
+    {
+        return $this->hasDefaultUser;
+    }
+
+    public function enableDefaultUser()
+    {
+        $this->hasDefaultUser = true;
+    }
+
+    public function disableDefaultUser()
+    {
+        $this->hasDefaultUser = false;
+    }
+
+    public function getDefaultUserId()
+    {
+        return $this->defaultUserId;
+    }
+
+    public function setDefaultUserId($id)
+    {
+        $this->defaultUserId = $id;
     }
 
     protected function getUserClass()
