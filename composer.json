@@ -9,7 +9,7 @@
         "updated_by",
         "softdeletes",
         "laravel",
-        "crud",
+        "crud"
     ],
     "require": {
         "php": ">=8.0",
