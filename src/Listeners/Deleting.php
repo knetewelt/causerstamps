@@ -8,7 +8,7 @@ class Deleting
 {
     public function handle($model)
     {
-        if (! $model->isUserstamping() || is_null($model->getDeletedByColumn())) {
+        if (! $model->isCauserstamping() || is_null($model->getDeletedByColumn())) {
             return;
         }
 

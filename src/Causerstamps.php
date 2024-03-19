@@ -1,6 +1,7 @@
 <?php
 
 namespace Knetewelt\Causerstamps;
+
 trait Causerstamps
 {
     protected $causerstamping = true;

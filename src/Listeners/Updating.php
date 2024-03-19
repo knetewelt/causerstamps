@@ -8,7 +8,7 @@ class Updating
 {
     public function handle($model)
     {
-        if (! $model->isUserstamping() || is_null($model->getUpdatedByColumn()) || is_null(Auth::id())) {
+        if (! $model->isCauserstamping() || is_null($model->getUpdatedByColumn()) || is_null(Auth::id())) {
             return;
         }
 
