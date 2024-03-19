@@ -1,0 +1,31 @@
+{
+    "name": "knetewelt/causerstamps",
+    "description": "A package to provide timestamps for eloquent models using a trait. It extends the model for created_by and updated_by column. If the model uses SoftDeletes it'll at a column for that as well.",
+    "keywords": [
+        "eloquent",
+        "timestamps",
+        "causerstamps",
+        "created_by",
+        "updated_by",
+        "softdeletes",
+        "laravel",
+        "crud",
+    ],
+    "require": {
+        "php": ">=8.0",
+        "illuminate/support": "^8.0|^9.0|^10.0|^11.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Knetewelt\\Causerstamps\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "knetewelt",
+            "email": "dev@mtzrhm.de",
+            "role": "Developer"
+        }
+    ]
+}
